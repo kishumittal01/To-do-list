@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoItem from "./ToDoItem";
 
 function App() {
         const [
@@ -39,6 +40,16 @@ function App() {
                                         value={
                                                 inputTest
                                         }
+                                        onKeyPress={(
+                                                e
+                                        ) => {
+                                                if (
+                                                        e.key ===
+                                                        "Enter"
+                                                ) {
+                                                        addItem();
+                                                }
+                                        }}
                                 />
                                 <button
                                         onClick={
@@ -56,11 +67,11 @@ function App() {
                                                 (
                                                         todoItem
                                                 ) => (
-                                                        <li>
-                                                                {
+                                                        <ToDoItem
+                                                                text={
                                                                         todoItem
                                                                 }
-                                                        </li>
+                                                        />
                                                 )
                                         )}
                                 </ul>
